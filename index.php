@@ -7,7 +7,29 @@
             <div class="row clearfix">
                 <div class="col-lg-6 large-post post-wrap">
                     <?php
-                        $sql ="SELECT * FROM `new_post`;";
+                    if (isset($_POST["searchbutton"])) {
+                        // search Query
+                        $showPostFrom = 0;
+                        $search = $_POST['search'];
+                        $sql = "SELECT * FROM new_post WHERE 
+                        datetime LIKE '%$search%' OR title LIKE '%$search%'
+                        OR category LIKE '%$search%' OR author LIKE '%$search%' OR
+                        post LIKE '%$search%'";
+                    } elseif (isset($_GET['page'])) {
+                        $page = $_GET['page'];
+                        if ($page <= 0) {
+                            $showPostFrom = 0;
+                        } else {
+                            $showPostFrom = ($page * 3) - 3;
+                        }
+                        // echo $showPostFrom;
+                        $sql ="SELECT * FROM new_post 
+                        ORDER BY datetime DESC LIMIT $showPostFrom,3";
+                    } else {
+                        // normal Query
+                        $sql ="SELECT * FROM new_post 
+                        ORDER BY datetime DESC LIMIT 0,3";
+                    }
                         $exe =mysqli_query($conn, $sql);
                     while ($rows = mysqli_fetch_array($exe)) {
                         $postid = $rows['id'];
@@ -41,6 +63,39 @@
                     </div>
                     <?php
                     } ?>
+                    <!-- Pagination -->
+                    <?php
+                    $queryPagination = "SELECT COUNT(*) FROM new_post";
+                    $executePagination = mysqli_query($conn, $queryPagination);
+                    $rowPagination = mysqli_fetch_array($executePagination);
+                    $TotalPost = array_shift($rowPagination);
+                    $postPerPage = ceil($TotalPost / 3);
+                    ?>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <?php  for ($i=1; $i <= $postPerPage ; $i++) {
+                        if (isset($page)) {
+                            if ($i == $page) { ?>
+                            <li class="page-item active">
+                                <a class="page-link"
+                                    href="index.php?page=<?= $i ?>">
+                                    <?= $i ?>
+                                </a>
+                            </li>
+                            <?php }
+                        } else { ?>
+
+                            <li class="page-item">
+                                <a class="page-link"
+                                    href="index.php?page=<?= $i ?>">
+                                    <?= $i ?>
+                                </a>
+                            </li>
+                            <?php }
+                    } ?>
+                        </ul>
+                    </nav>
+
                 </div>
                 <div class="col-lg-6 small-post post-wrap">
                     <a href="blog-single.html">

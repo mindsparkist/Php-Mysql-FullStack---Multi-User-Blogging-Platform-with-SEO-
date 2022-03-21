@@ -4,8 +4,8 @@
       // DB Params
       private $host = 'localhost';
       private $db_name = 'php-blog';
-      private $username = 'root';
-      private $password = '';
+      private $username = 'shuv';
+      private $password = '123';
       private $conn;
 
       // DB Connect

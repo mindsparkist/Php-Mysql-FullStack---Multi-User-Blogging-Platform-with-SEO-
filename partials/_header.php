@@ -7,11 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- =========== Title ============= -->
-    <title>Second Time Around &#8211; The perfect theme for news and magazine</title>
+    <title>The PHP Times The Php Custom Theme for news and magazine</title>
     <!-- ======== Load Google Fonts ============= -->
-    <link media="print" onload="this.onload=null;this.removeAttribute('media');"
+    <!-- <link media="print" onload="this.onload=null;this.removeAttribute('media');"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,700%7COswald:400,700&amp;display=swap"
-        rel="stylesheet" type="text/css" />
+        rel="stylesheet" type="text/css" /> -->
     <!-- ======== Bootstrap Core CSS ============= -->
     <link rel='stylesheet' href='libs/bootstrap/css/bootstrap.min.css' type='text/css' media='all' />
     <!-- =========== Main CSS ============= -->
@@ -37,9 +37,9 @@
                 <!-- =========== Title ============= -->
                 <title>Second Time Around &#8211; The perfect theme for news and magazine</title>
                 <!-- ======== Load Google Fonts ============= -->
-                <link media="print" onload="this.onload=null;this.removeAttribute('media');"
+                <!-- <link media="print" onload="this.onload=null;this.removeAttribute('media');"
                     href="https://fonts.googleapis.com/css?family=Roboto:300,400,700%7COswald:400,700&amp;display=swap"
-                    rel="stylesheet" type="text/css" />
+                    rel="stylesheet" type="text/css" /> -->
                 <!-- ======== Bootstrap Core CSS ============= -->
                 <link rel='stylesheet' href='libs/bootstrap/css/bootstrap.min.css' type='text/css' media='all' />
                 <!-- =========== Main CSS ============= -->
@@ -88,7 +88,7 @@
                     <!-- =========== Logo ============= -->
                     <div class="container">
                         <div class="header-wrapper text-center">
-                            <a class="text-logo" href="index.php">Second Time Around</a>
+                            <a class="text-logo" href="index.php">The Php Times</a>
                             <div class="site-description">The perfect theme for news and magazine</div>
                         </div>
                     </div>

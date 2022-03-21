@@ -57,7 +57,7 @@
             <span>category</span></a>
     </li>
     <!-- contract us -->
-    <li class="nav-item <?php if ($page=='contract') {
+    <li class="nav-item <?php if ($page=='contact') {
     echo 'active';
 }?>">
         <a class="nav-link " href="contract.php">

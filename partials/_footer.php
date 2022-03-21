@@ -65,12 +65,11 @@
             </div>
             <div class="col-md-5">
                 <div id="mc4wp_form_widget-2" class="widget widget_mc4wp_form_widget">
-                    <h4 class="widget-title">Newsletter</h4>
+                    <h4 class="widget-title">Donation</h4>
                     <form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-114" method="post" data-id="114" data-name="">
                         <div class="mc4wp-form-fields">
-                            <p>Get all the latest posts delivered straight to your inbox.</p>
-                            <input type="email" name="EMAIL" placeholder="yourmail@example.com" required="">
-                            <input type="submit" value="Subscribe">
+                            <p>We Need Good People Loke You To Donate</p>
+                            <input type="button" class="btn btn-info" value="Subscribe">
                         </div>
                         <label style="display: none !important;">Leave this field empty if you're human:
                             <input type="text" name="_mc4wp_honeypot" value="" tabindex="-1" autocomplete="off" />
@@ -125,10 +124,14 @@
     <div class="container popup-inner">
         <div class="row">
             <div class="col-sm-12">
-                <form id="search-form">
+                <!-- Search form -->
+                <form id="search-form" action="index.php" method="POST">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Type to search" id="search-input"
-                            aria-label="Search">
+                            aria-label="Search" name="search">
+                        <button type="submit" value="Submit" class="btn btn-primary" name="searchbutton">
+                            Search
+                        </button>
                     </div>
                 </form>
                 <div class="loader" id="loader"><span class="spinner"></span>Loading ...</div>

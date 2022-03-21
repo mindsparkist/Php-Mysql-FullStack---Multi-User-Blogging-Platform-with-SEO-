@@ -1,30 +1,36 @@
-analytics icon fix ✅
-make a donation payment
-admin contract active class
-contact page success or failed message
-make dynamic menue
-create a specific user for mysql table
-about,terms,privacy ✅
+Search bar
+make a donation payment // https://www.youtube.com/watch?v=q6H6YCQkiVs
+cookie modal // https://www.jqueryscript.net/other/cookie-consent-settings-modal.html
+darkmode
+take the button style from https://www.youtube.com/watch?v=8YwxGhnyHR0 and the code from the net ninga
+lazy load images (https://www.youtube.com/watch?v=9gbEmpANs9o) ⚠
+add hover animation (hover.css) ✅
+text to speech php 
+rechapta in contact page
+create a specific user for mysql table ✅
 add email verification in signup
+email validation otp when register
 forgot password
 google and facebook login
-infinite scroll
-devolop an api 
-lazy load images 
-add hover animation
-download csv or pdf
-email validation otp when register
+pagination -> infinite scroll
+download csv or pdf 
+contact page success or failed message ✅
+make dynamic menue ✅
+analytics icon fix ✅
+admin contract active class
+about,terms,privacy ✅
+devolop an api ✅
 jwt auth in php
-quiz
-darkmode
-add admin name in topbar
-add dynamic name in php
-popup for login google
-skeliton build
-how to use redis as a cache in php mysql
-redis as a cache
-docker
-k8
-text to speech php 
-cookie modal // https://www.jqueryscript.net/other/cookie-consent-settings-modal.html
+add admin name in topbar ✅
+add dynamic name in php ✅
+delete images when post are deleted 
+stustr dashboard title
+pagination in dashboard
+keep the styling in wsywig editor
+when editing and not uploading image the image path changes
+post -> desc
+add share post option 
+category page a slno Fix 
+contact admin page a dimentation fix
+
 

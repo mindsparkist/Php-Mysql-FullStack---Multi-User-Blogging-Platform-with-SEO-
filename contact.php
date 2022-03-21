@@ -1,18 +1,10 @@
 <?php
 require_once './partials/_header.php';
-?>
-<?php
+require_once './partials/_db.php';
 
-$server = 'localhost';
-$username = 'root';
-$password = '';
-$db = 'php-blog';
-
-$conn = mysqli_connect($server, $username, $password, $db);
-
-if ($conn === false) {
-    die("ERROR: Could not connect. " . mysqli_connect_error());
-}
+$missing = false;
+$sql_success = false;
+$sql_unsuccess = false;
 
 
 if (isset($_POST['submit'])) {
@@ -21,8 +13,18 @@ if (isset($_POST['submit'])) {
     $Subject=htmlspecialchars(stripslashes(trim($_POST['subject'])));
     $Message=htmlspecialchars(stripslashes(trim($_POST['message'])));
 
-    $sql="INSERT INTO `contact`(`name`, `email`, `subject`, `description`) VALUES ('$Name','$Email','$Subject','$Message')";
-    $result=mysqli_query($conn, $sql);
+    if (empty($Name)||empty($Email)||empty($Subject)||empty($Message)) {
+        $missing = true;
+    }
+    if ($missing == false) {
+        $sql="INSERT INTO `contact`(`name`, `email`, `subject`, `description`) VALUES ('$Name','$Email','$Subject','$Message')";
+        if ($conn->query($sql) === true) {
+            $sql_success = true;
+        } else {
+            $sql_unsuccess = true;
+            echo "Error: " . $sql . "<br>" . $conn->error;
+        }
+    }
 }
 
 
@@ -31,6 +33,22 @@ if (isset($_POST['submit'])) {
 
 <div class="main-content-area">
     <div class="container">
+        <?php if ($missing) : ?>
+        <div class="alert alert-warning" role="alert">
+            Please Fill The Required Field
+        </div>
+        <?php endif ?>
+        <!-- div -->
+        <?php if ($sql_success) : ?>
+        <div class="alert alert-warning" role="alert">
+            Sent successfully
+        </div>
+        <?php endif ?>
+        <?php if ($sql_unsuccess) : ?>
+        <div class="alert alert-warning" role="alert">
+            Sending Unsuccessful
+        </div>
+        <?php endif ?>
         <div class="single-post-wrap page-wrap">
             <div class="post-head d-flex">
                 <div class="header-inner align-self-center">
