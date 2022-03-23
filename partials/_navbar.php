@@ -1,8 +1,5 @@
  <!-- =========== Navigation ============= -->
- <?php
- $conn = mysqli_connect('localhost', 'root', '', 'php-blog');
- $res = mysqli_query($conn, "SELECT categoryname FROM  categories");
- ?>
+
  <nav class="site-navbar-wrap">
      <div class="container">
          <div class="navbar-inner d-flex">
@@ -13,8 +10,10 @@
              <!-- =========== Main Menu ============= -->
              <ul id="menu-main-menu" class="navbar-nav m-auto text-center main-menu d-none d-lg-flex">
                  <?php
+                 $conn = mysqli_connect('localhost', 'root', '', 'php-blog');
+                 $res = mysqli_query($conn, "SELECT categoryname FROM  categories");
                  while ($row=mysqli_fetch_assoc($res)) { ?>
-                 <li class="menu-item"><a href=""><?= $row['categoryname']?></a>
+                 <li class="menu-item"><a href="category-business.php"><?= $row['categoryname']?></a>
                  </li>
                  <?php   } ?>
 
@@ -32,13 +31,18 @@
              <!-- =========== Mobile Menu ============= -->
              <nav class="mobile-menu" id="mobile-menu">
                  <ul id="menu-main-menu-1" class="menu">
-                     <li class="menu-item"><a href="index.html" aria-current="page">Home</a></li>
-                     <li class="menu-item"><a href="category-business.html">Business</a></li>
-                     <li class="menu-item"><a href="category-technology.html">Technology</a></li>
-                     <li class="menu-item"><a href="category-sports.html">Sports</a></li>
-                     <li class="menu-item"><a href="category-health.html">Health</a></li>
-                     <li class="menu-item"><a href="category-food.html">Food</a></li>
-                     <li class="menu-item"><a href="category-travel.html">Travel</a></li>
+                     <?php
+                     $conn = mysqli_connect('localhost', 'root', '', 'php-blog');
+                     $res = mysqli_query($conn, "SELECT categoryname FROM  categories");
+
+                 while ($row=mysqli_fetch_assoc($res)) { ?>
+                     <li class="menu-item">
+                         <a href="category-business.php">
+                             <?= $row['categoryname']?>
+                         </a>
+                     </li>
+                     <?php   } ?>
+
                      <li class="menu-item"><a href="contact.php">Contact</a></li>
                  </ul>
              </nav>
@@ -65,28 +69,18 @@
                          <path d="M24 6h-24v-4h24v4zm0 4h-24v4h24v-4zm0 8h-24v4h24v-4z" />
                      </svg></span>
                  <ul id="menu-main-menu-2" class="navbar-nav m-auto text-center main-menu d-none d-lg-flex">
-                     <li class="menu-item"><a href="index.html" aria-current="page">Home</a></li>
-                     <li class="menu-item"><a href="#">Pages</a>
-                         <ul class="sub-menu">
-                             <li class="menu-item"><a href="style-guide.html">Style Guide</a></li>
-                             <li class="menu-item"><a href="about.html">About</a></li>
-                             <li class="menu-item"><a href="#">Second Level</a>
-                                 <ul class="sub-menu">
-                                     <li class="menu-item"><a href="#">Third Level B</a></li>
-                                     <li class="menu-item"><a href="#">Third Level A</a></li>
-                                 </ul>
-                             </li>
-                             <li class="menu-item"><a href="terms.html">Terms</a></li>
-                             <li class="menu-item"><a href="privacy.html">Privacy</a></li>
-                             <li class="menu-item"><a href="404.html">Error 404</a></li>
-                         </ul>
+                     <?php
+                     $conn = mysqli_connect('localhost', 'root', '', 'php-blog');
+                     $res = mysqli_query($conn, "SELECT categoryname FROM  categories");
+
+                 while ($row=mysqli_fetch_assoc($res)) { ?>
+                     <li class="menu-item">
+                         <a href="category-business.php">
+                             <?= $row['categoryname']?>
+                         </a>
                      </li>
-                     <li class="menu-item"><a href="category-business.html">Business</a></li>
-                     <li class="menu-item"><a href="category-technology.html">Technology</a></li>
-                     <li class="menu-item"><a href="category-sports.html">Sports</a></li>
-                     <li class="menu-item"><a href="category-health.html">Health</a></li>
-                     <li class="menu-item"><a href="category-food.html">Food</a></li>
-                     <li class="menu-item"><a href="category-travel.html">Travel</a></li>
+                     <?php   } ?>
+
                      <li class="menu-item"><a href="contact.php">Contact</a></li>
                  </ul>
                  <span class="search-button d-inline-flex search-open"><svg xmlns="http://www.w3.org/2000/svg"

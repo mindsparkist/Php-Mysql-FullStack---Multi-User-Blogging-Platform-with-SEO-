@@ -75,36 +75,46 @@ require_once './partials/header.php';
                     </form>
                     <div class="mt-3"></div>
                     <!-- display -->
-                    <?php  $sqlf = "SELECT * FROM `categories`";
-        if ($res = mysqli_query($conn, $sqlf)) {
-            if (mysqli_num_rows($res) > 0) {
-                echo "<table class=\"table\">";
-                echo "<thead>";
-                echo "<tr>";
-                echo "<th scope=\"col\">Sl No</th>";
-                echo "<th scope=\"col\">Date&Time</th>";
-                echo "<th scope=\"col\">Name</th>";
-                echo "<th scope=\"col\">Category Name</th>";
-                echo "</tr>";
-                echo "</thead>";
-                while ($row = mysqli_fetch_array($res)) {
-                    echo "<tbody>";
+                    <?php  $sqlf = "SELECT * FROM categories";
+                    $slno = 1;
+            if ($res = mysqli_query($conn, $sqlf)) {
+                if (mysqli_num_rows($res) > 0) {
+                    echo "<table class=\"table\">";
+                    echo "<thead>";
                     echo "<tr>";
-                    echo "<td>".$row['id']."</td>";
-                    echo "<td>".$row['datetime']."</td>";
-                    echo "<td>".$row['name']."</td>";
-                    echo "<td>".$row['categoryname']."</td>";
+                    echo "<th scope=\"col\">Sl No</th>";
+                    echo "<th scope=\"col\">Date&Time</th>";
+                    echo "<th scope=\"col\">Author Name</th>";
+                    echo "<th scope=\"col\">Category Name</th>";
+                    echo "<th scope=\"col\">Action</th>";
                     echo "</tr>";
-                    echo "</tbody>";
+                    echo "</thead>";
+                    while ($row = mysqli_fetch_array($res)) {
+                        $postid = $row['id'];
+                        echo "<tbody>";
+                        echo "<tr>";
+                        echo "<td>".$slno."</td>";
+                        echo "<td>".$row['datetime']."</td>";
+                        echo "<td>".$row['name']."</td>";
+                        echo "<td>".$row['categoryname']."</td>";
+                        echo "<td> 
+                              <a href=\"deletecategory.php?cat=$postid\"
+                                        class=\"btn btn-danger\" target=\"_blank\">
+                                        Delete
+                                    </a>
+                              </td>";
+                        echo "</tr>";
+                        echo "</tbody>";
+                        $slno++;
+                    }
+                    echo "</table>";
+                } else {
+                    echo "<p class=\"ml-3 text-center\">No matching records are found.</p>";
                 }
-                echo "</table>";
             } else {
-                echo "<p class=\"ml-3 text-center\">No matching records are found.</p>";
-            }
-        } else {
-            echo "ERROR: Could not able to execute $sqlf. "
+                echo "ERROR: Could not able to execute $sqlf. "
                                         .mysqli_error($conn);
-        }
+            }
         mysqli_close($conn);
 ?>
                 </div>

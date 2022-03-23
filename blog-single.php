@@ -6,6 +6,7 @@ $sql_success = false;
 $sql_unsuccess = false;
 
    if (isset($_POST['submitcomment'])) {
+       $pageid = $_GET['id'];
        date_default_timezone_set("Asia/Kolkata");
        $datetime = date('d/m/Y h:i:s a', time());
        $comment=htmlspecialchars(stripslashes(trim($_POST['comment'])));
@@ -16,12 +17,13 @@ $sql_unsuccess = false;
            $missing = true;
        }
        if ($missing == false) {
-           $sql="INSERT INTO `comment`
-           (`datetime`, `comment`, `commentauth`, `commentmail`, `status`) 
+           $sql="INSERT INTO comment
+           (datetime, comment, commentauth, commentmail, status) 
            VALUES 
            ('$datetime','$comment','$commentAuthor','$commentEmail','OFF')";
            if ($conn->query($sql) === true) {
                $sql_success = true;
+               header("Location:blog-single.php?id=<?= $pageid ?>");
            } else {
                $sql_unsuccess = true;
                echo "Error: " . $sql . "<br>" . $conn->error;

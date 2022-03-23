@@ -1,0 +1,18 @@
+if (isset($page)) {
+                            if ($i == $page) { ?>
+                            <li class="page-item active">
+                                <a class="page-link"
+                                    href="index.php?page=<?= $i ?>">
+                                    <?= $i ?>
+                                </a>
+                            </li>
+                            <?php }
+                        } else { ?>
+
+                            <li class="page-item">
+                                <a class="page-link"
+                                    href="index.php?page=<?= $i ?>">
+                                    <?= $i ?>
+                                </a>
+                            </li>
+                            <?php }

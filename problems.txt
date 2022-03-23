@@ -28,9 +28,9 @@ stustr dashboard title
 pagination in dashboard
 keep the styling in wsywig editor
 when editing and not uploading image the image path changes
-post -> desc
+post -> desc ✅
 add share post option 
-category page a slno Fix 
+category page a slno Fix ✅
 contact admin page a dimentation fix
 
 

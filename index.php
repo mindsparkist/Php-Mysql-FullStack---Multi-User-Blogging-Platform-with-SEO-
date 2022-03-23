@@ -64,39 +64,28 @@
                     <?php
                     } ?>
                     <!-- Pagination -->
-                    <?php
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <?php
                     $queryPagination = "SELECT COUNT(*) FROM new_post";
                     $executePagination = mysqli_query($conn, $queryPagination);
                     $rowPagination = mysqli_fetch_array($executePagination);
                     $TotalPost = array_shift($rowPagination);
                     $postPerPage = ceil($TotalPost / 3);
-                    ?>
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <?php  for ($i=1; $i <= $postPerPage ; $i++) {
-                        if (isset($page)) {
-                            if ($i == $page) { ?>
-                            <li class="page-item active">
-                                <a class="page-link"
-                                    href="index.php?page=<?= $i ?>">
-                                    <?= $i ?>
-                                </a>
-                            </li>
-                            <?php }
-                        } else { ?>
-
+                    for ($i=1; $i <= $postPerPage ; $i++) { ?>
                             <li class="page-item">
                                 <a class="page-link"
                                     href="index.php?page=<?= $i ?>">
                                     <?= $i ?>
                                 </a>
                             </li>
-                            <?php }
-                    } ?>
+                            <?php } ?>
                         </ul>
                     </nav>
 
                 </div>
+                <!-- About Us  -->
+                <!-- end About Us -->
                 <div class="col-lg-6 small-post post-wrap">
                     <a href="blog-single.html">
                         <div class="featured-image-wrap">
@@ -149,6 +138,47 @@
                         <time class="date" datetime="2019-04-20">April 20, 2019</time>
                     </div>
                 </div>
+                <!-- End Of Recent Post Us  -->
+                <div class="col-lg-6 small-post post-wrap">
+                    <a href="blog-single.html">
+                        <div class="featured-image-wrap">
+                            <div class="featured-image" style="background-image:url(img/2020-fifa.jpg);"></div>
+                        </div>
+                    </a>
+                    <div class="content-wrap">
+                        <div class="tag"><a href="#" rel="category tag">Sports</a></div>
+                        <h2 class="title h4"><a href="blog-single.html">How 2022 FIFA WC host Quatar preparing them
+                                self</a></h2>
+                        <time class="date" datetime="2019-04-20">April 20, 2019</time>
+                    </div>
+                </div>
+                <div class="col-lg-6 small-post post-wrap">
+                    <a href="blog-single.html">
+                        <div class="featured-image-wrap">
+                            <div class="featured-image" style="background-image:url(img/2020-fifa.jpg);"></div>
+                        </div>
+                    </a>
+                    <div class="content-wrap">
+                        <div class="tag"><a href="#" rel="category tag">Sports</a></div>
+                        <h2 class="title h4"><a href="blog-single.html">How 2022 FIFA WC host Quatar preparing them
+                                self</a></h2>
+                        <time class="date" datetime="2019-04-20">April 20, 2019</time>
+                    </div>
+                </div>
+                <div class="col-lg-6 small-post post-wrap">
+                    <a href="blog-single.html">
+                        <div class="featured-image-wrap">
+                            <div class="featured-image" style="background-image:url(img/2020-fifa.jpg);"></div>
+                        </div>
+                    </a>
+                    <div class="content-wrap">
+                        <div class="tag"><a href="#" rel="category tag">Sports</a></div>
+                        <h2 class="title h4"><a href="blog-single.html">How 2022 FIFA WC host Quatar preparing them
+                                self</a></h2>
+                        <time class="date" datetime="2019-04-20">April 20, 2019</time>
+                    </div>
+                </div>
+                <!-- End Of Popular Post Us  -->
             </div>
         </div>
     </div>

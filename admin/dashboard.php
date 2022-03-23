@@ -40,8 +40,20 @@
                         </thead>
                         <tbody>
                             <?php
-                                $Query = "SELECT * FROM new_post ORDER BY 
-                                            datetime DESC;";
+                        if (isset($_GET['page'])) {
+                            $page = $_GET['page'];
+                            if ($page <= 0) {
+                                $showPostFrom = 0;
+                            } else {
+                                $showPostFrom = ($page * 3) - 3;
+                            }
+                            echo $showPostFrom;
+                            $Query ="SELECT * FROM new_post 
+                        ORDER BY datetime DESC LIMIT $showPostFrom,3";
+                        } else {
+                            $Query = "SELECT * FROM new_post ORDER BY 
+                                      datetime DESC LIMIT 0,3;";
+                        }
                                 $exe =mysqli_query($conn, $Query);
                                 $slno = 0;
                                 while ($rows = mysqli_fetch_array($exe)) {
@@ -92,6 +104,24 @@
                                 }?>
                         </tbody>
                     </table>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                            <?php
+                    $queryPagination = "SELECT COUNT(*) FROM new_post";
+                    $executePagination = mysqli_query($conn, $queryPagination);
+                    $rowPagination = mysqli_fetch_array($executePagination);
+                    $TotalPost = array_shift($rowPagination);
+                    $postPerPage = ceil($TotalPost / 3);
+                    for ($i=1; $i <= $postPerPage ; $i++) { ?>
+                            <li class="page-item">
+                                <a class="page-link"
+                                    href="dashboard.php?page=<?= $i ?>">
+                                    <?= $i ?>
+                                </a>
+                            </li>
+                            <?php } ?>
+                        </ul>
+                    </nav>
 
                 </div>
                 <!-- /.container-fluid -->
