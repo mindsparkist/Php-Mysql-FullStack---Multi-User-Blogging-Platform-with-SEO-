@@ -41,8 +41,11 @@ if (isset($_POST['deltcategory'])) {
                     <form
                         action="deletecategory.php?cat=<?= $queryparam  ?>"
                         method="POST">
-                        <a type="submit" name="deltcategory" value="deltcategory"
-                            class="btn btn-outline-danger btn-lg btn-block">Delete</a>
+
+                        <button type="submit" name="deltcategory" value="deltcategory"
+                            class="btn btn-outline-danger btn-lg btn-block">
+                            Delete
+                        </button>
                     </form>
                 </div>
                 <!-- /.container-fluid -->

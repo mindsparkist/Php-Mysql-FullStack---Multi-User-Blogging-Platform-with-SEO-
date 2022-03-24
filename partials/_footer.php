@@ -90,7 +90,9 @@
                     <form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-114" method="post" data-id="114" data-name="">
                         <div class="mc4wp-form-fields">
                             <p>We Need Good People Loke You To Donate</p>
-                            <input type="button" class="btn btn-info" value="Subscribe">
+                            <button type="submit" class="btn btn-warning hvr-overline-from-left">
+                                Subscribe
+                            </button>
                         </div>
                     </form>
                 </div>

@@ -1,36 +1,43 @@
+category delete kora 
+comment a session messege add 
+logout problem 
+contact admin page a dimentation fix
+font change 
+add share post option 
+when editing and not uploading image the image path changes
+rechapta in contact page
 Search bar
 make a donation payment // https://www.youtube.com/watch?v=q6H6YCQkiVs
 cookie modal // https://www.jqueryscript.net/other/cookie-consent-settings-modal.html
+put Admin Name in Admin Bar 
+get item by categories
+sidebar
+     - recent post
+     - popular post 
+     - about us 
 darkmode
-take the button style from https://www.youtube.com/watch?v=8YwxGhnyHR0 and the code from the net ninga
-lazy load images (https://www.youtube.com/watch?v=9gbEmpANs9o) ⚠
-add hover animation (hover.css) ✅
+       -take the button style from https://www.youtube.com/watch?v=8YwxGhnyHR0 and the code from the net ninga
 text to speech php 
-rechapta in contact page
+add hover animation (hover.css) ✅
 create a specific user for mysql table ✅
 add email verification in signup
 email validation otp when register
 forgot password
 google and facebook login
-pagination -> infinite scroll
+pagination ✅
 download csv or pdf 
 contact page success or failed message ✅
 make dynamic menue ✅
 analytics icon fix ✅
-admin contract active class
 about,terms,privacy ✅
 devolop an api ✅
-jwt auth in php
 add admin name in topbar ✅
 add dynamic name in php ✅
 delete images when post are deleted 
-stustr dashboard title
-pagination in dashboard
-keep the styling in wsywig editor
-when editing and not uploading image the image path changes
+stustr dashboard title ✅
+pagination in dashboard ✅
+keep the styling in wsywig editor ✅
 post -> desc ✅
-add share post option 
 category page a slno Fix ✅
-contact admin page a dimentation fix
 
 

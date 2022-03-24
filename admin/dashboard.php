@@ -106,6 +106,12 @@
                     </table>
                     <nav aria-label="Page navigation example">
                         <ul class="pagination">
+                            <?php if (isset($_GET['page']) && $page>1)  : ?>
+                            <li class="page-item">
+                                <a class="page-link"
+                                    href="index.php?page=<?=$page - 1 ?>">Previous</a>
+                            </li>
+                            <?php  endif ?>
                             <?php
                     $queryPagination = "SELECT COUNT(*) FROM new_post";
                     $executePagination = mysqli_query($conn, $queryPagination);
@@ -120,6 +126,12 @@
                                 </a>
                             </li>
                             <?php } ?>
+                            <?php if (isset($_GET['page']) && $page+1<=$postPerPage)  : ?>
+                            <li class="page-item">
+                                <a class="page-link"
+                                    href="index.php?page=<?=$page + 1 ?>">Next</a>
+                            </li>
+                            <?php  endif ?>
                         </ul>
                     </nav>
 

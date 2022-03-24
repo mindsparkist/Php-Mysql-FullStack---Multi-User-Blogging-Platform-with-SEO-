@@ -1,36 +1,6 @@
-<?php require_once './partials/_db.php'; ?>
-<?php require_once './partials/_header.php'; ?>
 <?php
-$missing = false;
-$sql_success = false;
-$sql_unsuccess = false;
-
-   if (isset($_POST['submitcomment'])) {
-       $pageid = $_GET['id'];
-       date_default_timezone_set("Asia/Kolkata");
-       $datetime = date('d/m/Y h:i:s a', time());
-       $comment=htmlspecialchars(stripslashes(trim($_POST['comment'])));
-       $commentAuthor=htmlspecialchars(stripslashes(trim($_POST['cauthor'])));
-       $commentEmail=htmlspecialchars(stripslashes(trim($_POST['cemail'])));
-
-       if (empty($comment)||empty($commentAuthor)||empty($commentEmail)) {
-           $missing = true;
-       }
-       if ($missing == false) {
-           $sql="INSERT INTO comment
-           (datetime, comment, commentauth, commentmail, status) 
-           VALUES 
-           ('$datetime','$comment','$commentAuthor','$commentEmail','OFF')";
-           if ($conn->query($sql) === true) {
-               $sql_success = true;
-               header("Location:blog-single.php?id=<?= $pageid ?>");
-           } else {
-               $sql_unsuccess = true;
-               echo "Error: " . $sql . "<br>" . $conn->error;
-           }
-       }
-   }
-
+require_once './partials/_db.php';
+require_once './partials/_header.php';
 ?>
 <!-- =========== Main Container ============= -->
 <div class="main-content-area">
@@ -44,8 +14,9 @@ $sql_unsuccess = false;
                         OR category LIKE '%$search%' OR author LIKE '%$search%' OR
                         post LIKE '%$search%'";
             } else {
-                $postid = $_GET['id'];
-                $sql ="SELECT * FROM new_post WHERE id='$postid' ORDER BY datetime DESC";
+                $postid1 = $_GET['id'];
+                //echo $postid1;
+                $sql ="SELECT * FROM new_post WHERE id='$postid1'";
             }
                         $exe =mysqli_query($conn, $sql);
                     while ($rows = mysqli_fetch_array($exe)) {
@@ -82,7 +53,7 @@ $sql_unsuccess = false;
             </div>
             <div class="post-content m-auto">
                 <p>
-                    <?= $post ?>
+                    <?= html_entity_decode($post) ?>
                 </p>
             </div>
             <div class="share-wrap clearfix text-center">
@@ -139,24 +110,14 @@ $sql_unsuccess = false;
         </div>
         <!-- Comment -->
         <div class="comment-container" id="comments">
-            <?php if ($missing) : ?>
-            <div class="alert alert-warning" role="alert">
-                Please Fill The Required Field
-            </div>
-            <?php endif ?>
+
             <!-- sql -->
-            <?php if ($sql_success) : ?>
-            <div class="alert alert-warning" role="alert">
-                Sent successfully
-            </div>
-            <?php endif ?>
-            <?php if ($sql_unsuccess) : ?>
-            <div class="alert alert-warning" role="alert">
-                Sending Unsuccessful
-            </div>
-            <?php endif ?>
+
+
             <div id="respond" class="comment-respond">
-                <form action="blog-single.php" method="POST" id="commentform" class="comment-form">
+                <form
+                    action="comment-post.php?id='<?= $_GET['id'] ?>'"
+                    method="POST" id="commentform" class="comment-form">
                     <p class="comment-notes"><span id="email-notes">Your email address will not be published.</span>
                         Required fields are marked <span class="required">*</span></p>
                     <div> <label for="comment">Comment</label>
@@ -181,8 +142,9 @@ $sql_unsuccess = false;
                         </div>
                     </div>
                     <p class="form-submit">
-                        <input name="submitcomment" type="submit" id="submit" class="btn btn-primary"
-                            value="Submit Comment">
+                        <button type="submit" id="submit" name="submitcomment"
+                            class="btn btn-success hvr-overline-from-left">Submit
+                            Comment</button>
                     </p>
                 </form>
             </div><!-- #respond -->
