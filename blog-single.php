@@ -109,11 +109,48 @@ require_once './partials/_header.php';
                     } ?>
         </div>
         <!-- Comment -->
+        <section style="background-color: #e7effd;">
+            <div class="container my-5 py-5 text-dark">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-md-11 col-lg-9 col-xl-7">
+                        <?php
+        $postIdForComments = $_GET['id'];
+        $commentQuery ="SELECT * FROM comment 
+        WHERE post_id = '$postIdForComments' AND status = 'ON'";
+        $execomment =mysqli_query($conn, $commentQuery);
+        while ($rows = mysqli_fetch_array($execomment)) {
+            $commentDate = $rows['datetime'];
+            $commentAuthor = $rows['commentauth'];
+            $comment = $rows['comment']; ?>
+                        <div class="d-flex flex-start mb-4">
+                            <img class="rounded-circle shadow-1-strong me-3" src="./img/def_face.jpg" alt="avatar"
+                                width="65" height="65" />
+                            <div class="card w-100">
+                                <div class="card-body p-4">
+                                    <div class="">
+                                        <h5><?= $commentAuthor ?>
+                                        </h5>
+                                        <p class="small">
+                                            <?= $commentDate ?>
+                                        </p>
+                                        <p>
+                                            <?= $comment ?>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <?php
+        } ?>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- end -->
         <div class="comment-container" id="comments">
-
+            <!-- sql Success and unsuccess message -->
             <!-- sql -->
-
-
             <div id="respond" class="comment-respond">
                 <form
                     action="comment-post.php?id='<?= $_GET['id'] ?>'"

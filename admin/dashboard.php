@@ -47,7 +47,6 @@
                             } else {
                                 $showPostFrom = ($page * 3) - 3;
                             }
-                            echo $showPostFrom;
                             $Query ="SELECT * FROM new_post 
                         ORDER BY datetime DESC LIMIT $showPostFrom,3";
                         } else {
@@ -82,7 +81,31 @@
                                         alt="<?= $title ?>"
                                         srcset="">
                                 </td>
-                                <td>Processing</td>
+                                <td>
+                                    <?php
+                              $approvedCommnets = "SELECT COUNT(*) 
+                              FROM comment WHERE post_id = '$postid' AND status = 'ON'";
+                                    $commentQuery = mysqli_query($conn, $approvedCommnets);
+                                    $exeComment = mysqli_fetch_array($commentQuery);
+                                    $TotalApprovedComment = array_shift($exeComment); ?>
+                                    <?php if ($TotalApprovedComment > 0): ?>
+                                    <span class="badge badge-pill badge-info">
+                                        <?=$TotalApprovedComment?>
+                                    </span>
+                                    <?php endif; ?>
+                                    <!-- un-Approve comments -->
+                                    <?php
+                              $unapprovedCommnets = "SELECT COUNT(*) 
+                              FROM comment WHERE post_id = '$postid' AND status = 'OFF'";
+                                    $commentQueryun = mysqli_query($conn, $unapprovedCommnets);
+                                    $exeCommentun = mysqli_fetch_array($commentQueryun);
+                                    $TotalUnApprovedComment = array_shift($exeCommentun); ?>
+                                    <?php if ($TotalUnApprovedComment > 0): ?>
+                                    <span class="badge badge-pill badge-dark ml-4">
+                                        <?=$TotalUnApprovedComment?>
+                                    </span>
+                                    <?php endif; ?>
+                                </td>
                                 <td>
                                     <a href="editpost.php?edit=<?= $postid ?>"
                                         class="btn btn-warning" target="_blank">

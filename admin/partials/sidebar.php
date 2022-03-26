@@ -65,10 +65,10 @@
             <span>contract</span></a>
     </li>
 
-    <li class="nav-item <?php if ($page=='Comment') {
+    <li class="nav-item <?php if ($page=='admin-comments') {
     echo 'active';
 }?>">
-        <a class="nav-link " href="#">
+        <a class="nav-link " href="admin-comments.php">
             <i class="fa fa-comment"></i>
             <span>Comment</span></a>
     </li>

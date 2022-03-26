@@ -701,7 +701,7 @@ a img.aligncenter{
   right: 0;
 }
 /*  */
-
+.link-muted { color: #aaa; } .link-muted:hover { color: #1266f1; }
 @media screen and (min-width:601px) and (max-width:782px){
     .admin-bar .site-header .fixed-nav-wrap{
         top:46px
