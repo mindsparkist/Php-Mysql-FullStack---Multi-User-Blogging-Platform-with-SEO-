@@ -83,10 +83,10 @@
 
 
     <!-- Nav Item - Pages Collapse Menu -->
-    <li class="nav-item <?php if ($page=='MAdmin') {
+    <li class="nav-item <?php if ($page=='admin-Add') {
     echo 'active';
 }?>">
-        <a class="nav-link" href="#">
+        <a class="nav-link" href="adminAdd.php">
             <i class="fa fa-user"></i>
             <span>Manage Admin</span></a>
     </li>

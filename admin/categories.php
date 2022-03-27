@@ -99,7 +99,7 @@ require_once './partials/header.php';
                         echo "<td>".$row['categoryname']."</td>";
                         echo "<td> 
                               <a href=\"deletecategory.php?cat=$postid\"
-                                        class=\"btn btn-danger\" target=\"_blank\">
+                                        class=\"btn btn-danger\">
                                         Delete
                                     </a>
                               </td>";

@@ -10,7 +10,7 @@ if (isset($_POST['submit'])) {
     $password=htmlspecialchars(stripslashes(trim($_POST['password'])));
     $Remember_me=htmlspecialchars(stripslashes(trim($_POST['Remember_me'])));
     if (isset($Remember_me) && $_POST['Remember_me'] == "yes") {
-        setcookie("Remember_me", "true", time()+3600, "/blog/");
+        setcookie("Remember_me", "true", time()+3600, "/");
     }
 
     if ($username == 'admin' && $password == 'admin') {
