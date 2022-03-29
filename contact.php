@@ -1,4 +1,5 @@
 <?php
+$show_rechapta = true;
 require_once './partials/_header.php';
 require_once './partials/_db.php';
 
@@ -7,22 +8,27 @@ $sql_success = false;
 $sql_unsuccess = false;
 
 
-if (isset($_POST['submit'])) {
-    $Name=htmlspecialchars(stripslashes(trim($_POST['name'])));
-    $Email=htmlspecialchars(stripslashes(trim($_POST['email'])));
-    $Subject=htmlspecialchars(stripslashes(trim($_POST['subject'])));
-    $Message=htmlspecialchars(stripslashes(trim($_POST['message'])));
+if (isset($_POST['submit']) && $_POST['g-recaptcha-response'] != "") {
+    $secret = '6LfypSgfAAAAALtgb0eGBp5NjRnTiZA8Ex8eTOdU';
+    $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);
+    $responseData = json_decode($verifyResponse);
+    if ($responseData->success) {
+        $Name=htmlspecialchars(stripslashes(trim($_POST['name'])));
+        $Email=htmlspecialchars(stripslashes(trim($_POST['email'])));
+        $Subject=htmlspecialchars(stripslashes(trim($_POST['subject'])));
+        $Message=htmlspecialchars(stripslashes(trim($_POST['message'])));
 
-    if (empty($Name)||empty($Email)||empty($Subject)||empty($Message)) {
-        $missing = true;
-    }
-    if ($missing == false) {
-        $sql="INSERT INTO `contact`(`name`, `email`, `subject`, `description`) VALUES ('$Name','$Email','$Subject','$Message')";
-        if ($conn->query($sql) === true) {
-            $sql_success = true;
-        } else {
-            $sql_unsuccess = true;
-            echo "Error: " . $sql . "<br>" . $conn->error;
+        if (empty($Name)||empty($Email)||empty($Subject)||empty($Message)) {
+            $missing = true;
+        }
+        if ($missing == false) {
+            $sql="INSERT INTO `contact`(`name`, `email`, `subject`, `description`) VALUES ('$Name','$Email','$Subject','$Message')";
+            if ($conn->query($sql) === true) {
+                $sql_success = true;
+            } else {
+                $sql_unsuccess = true;
+                echo "Error: " . $sql . "<br>" . $conn->error;
+            }
         }
     }
 }
@@ -85,8 +91,9 @@ if (isset($_POST['submit'])) {
                                     aria-invalid="false" placeholder="Message">
                                 </textarea>
                             </span>
-                            <br>
-                            <input type="submit" name="submit" value="submit" class="wpcf7-form-control wpcf7-submit">
+                        <div class="g-recaptcha" data-sitekey="6LfypSgfAAAAAE-0EhzGe1h8i6oCZVeUNXnIRyyw"></div>
+                        <br>
+                        <input type="submit" name="submit" value="submit" class="wpcf7-form-control wpcf7-submit">
                         </p>
                         <div class="wpcf7-response-output" role="alert" aria-hidden="true"></div>
                     </form>

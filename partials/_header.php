@@ -16,6 +16,10 @@
     <link rel='stylesheet' href='libs/bootstrap/css/bootstrap.min.css' type='text/css' media='all' />
     <!-- =========== Main CSS ============= -->
     <link rel='stylesheet' href='style.css' type='text/css' media='all' />
+    <!-- rechaptcha -->
+    <?php if (isset($show_rechapta) && ($show_rechapta)) : ?>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    <?php endif ?>
     <!-- =========== Favicon ============= -->
     <link rel="icon" href="img/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" href="img/favicon-192x192.png" sizes="192x192" />

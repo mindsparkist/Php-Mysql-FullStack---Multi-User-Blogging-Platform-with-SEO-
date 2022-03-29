@@ -12,10 +12,12 @@
                  <?php
                  $conn = mysqli_connect('localhost', 'root', '', 'php-blog');
                  $res = mysqli_query($conn, "SELECT categoryname FROM  categories");
-                 while ($row=mysqli_fetch_assoc($res)) { ?>
-                 <li class="menu-item"><a href="category-business.php"><?= $row['categoryname']?></a>
+                 while ($row=mysqli_fetch_assoc($res)) : ?>
+                 <li class="menu-item">
+                     <a
+                         href="categories-page.php?cat=<?= $row['categoryname'] ?>"><?= $row['categoryname']?></a>
                  </li>
-                 <?php   } ?>
+                 <?php endwhile ?>
 
                  <li class="menu-item"><a href="contact.php">Contact</a></li>
              </ul><!-- =========== End Menu ============= -->

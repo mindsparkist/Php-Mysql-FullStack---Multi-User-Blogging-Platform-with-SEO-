@@ -1,0 +1,11 @@
+{
+    "name": "compassmetel/phpcms",
+    "description": "A Complete Blogging Solution",
+    "authors": [
+        {
+            "name": "mindsparkist",
+            "email": "chakrabortyshuvradip@gmail.com"
+        }
+    ],
+    "require": {}
+}
