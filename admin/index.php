@@ -1,25 +1,78 @@
 <?php
-if (isset($_COOKIE["Remember_me"])) {
-    header("Location:dashboard.php");
-}
-
-require_once './partials/header.php';
-
+require_once './partials/db.php';
+$UserNameNotok = false;
+$UserNotFound = false;
+session_start();
 if (isset($_POST['submit'])) {
     $username=htmlspecialchars(stripslashes(trim($_POST['username'])));
     $password=htmlspecialchars(stripslashes(trim($_POST['password'])));
     $Remember_me=htmlspecialchars(stripslashes(trim($_POST['Remember_me'])));
-    if (isset($Remember_me) && $_POST['Remember_me'] == "yes") {
-        setcookie("Remember_me", "true", time()+3600, "/");
-    }
-
-    if ($username == 'admin' && $password == 'admin') {
-        header("Location:dashboard.php");
-    } else {
-        header("Location:index.php");
+    if ($username == "root" && $password == "root") {
+        header("refresh:2; url=dashboard.php");
     }
 }
 ?>
+<!-- Header Added -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>SB Admin 2 - Dashboard</title>
+
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- jquery -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="vendor/sweetalert2/sweetalert2@11.js"></script>
+    <!-- sweet alert script -->
+    <script>
+        function validation() {
+            var name = document.f1.username.value;
+            var password = document.f1.password.value;
+            if (name.length == "" && password.length == "") {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Field Empty',
+                    text: 'Required Field`s Are Empty',
+                })
+                return false;
+            } else {
+                if (name.length == "") {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Field Empty',
+                        text: 'Name Field Empty',
+                    })
+                    return false;
+                }
+                if (password.length == "") {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Field Empty',
+                        text: 'Password Field Empty',
+                    })
+                    return false;
+                }
+            }
+        }
+    </script>
+</head>
 
 <body class="bg-gradient-primary">
 
@@ -41,15 +94,16 @@ if (isset($_POST['submit'])) {
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
                                     <form class="user" method="POST"
-                                        action="<?= $_SERVER['PHP_SELF'];?>">
-                                        <div class="form-group">
-                                            <input type="text" class="form-control form-control-user"
-                                                id="exampleInputEmail" aria-describedby="emailHelp"
-                                                placeholder="Enter Username" name="username">
+                                        action="<?= ($_SERVER['PHP_SELF']);?>"
+                                        name="f1" onsubmit="return validation()">
+                                        <div class=" form-group">
+                                            <input type="text" class="form-control form-control-user" id="username"
+                                                aria-describedby="emailHelp" placeholder="Enter Username Or Email"
+                                                name="username">
                                         </div>
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Password" name="password">
+                                            <input type="text" class="form-control form-control-user" id="password"
+                                                placeholder="Password" name="password">
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -63,20 +117,20 @@ if (isset($_POST['submit'])) {
                                             Login
                                         </button>
                                         <hr>
-                                        <a href="index.html" class="btn btn-google btn-user btn-block">
+                                        <!-- <a href="index.html" class="btn btn-google btn-user btn-block">
                                             <i class="fab fa-google fa-fw"></i> Login with Google
                                         </a>
                                         <a href="index.html" class="btn btn-facebook btn-user btn-block">
                                             <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
-                                        </a>
+                                        </a> -->
                                     </form>
                                     <hr>
                                     <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                        <a class="small" href="forgot-password.php">Forgot Password?</a>
                                     </div>
-                                    <div class="text-center">
+                                    <!-- <div class="text-center">
                                         <a class="small" href="register.html">Create an Account!</a>
-                                    </div>
+                                    </div> -->
                                 </div>
                             </div>
                         </div>

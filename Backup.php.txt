@@ -4,6 +4,7 @@ if (isset($page)) {
                                 <a class="page-link"
                                     href="index.php?page=<?= $i ?>">
                                     <?= $i ?>
+
                                 </a>
                             </li>
                             <?php }
@@ -16,3 +17,45 @@ if (isset($page)) {
                                 </a>
                             </li>
                             <?php }
+
+
+
+-------------------------------------------------
+if (isset($_POST['submit'])) {
+    $username=htmlspecialchars(stripslashes(trim($_POST['username'])));
+    $password=htmlspecialchars(stripslashes(trim($_POST['password'])));
+    $Remember_me=htmlspecialchars(stripslashes(trim($_POST['Remember_me'])));
+    if (isset($Remember_me) && $_POST['Remember_me'] == "yes") {
+        setcookie("Remember_me", "true", time()+3600, "/");
+    }
+
+    if ($username == 'admin' && $password == 'admin') {
+        header("Location:dashboard.php");
+    } else {
+        header("Location:index.php");
+    }
+}
+--------------------------------------------------------------
+$SQLAdmin = "SELECT * FROM admin_registration 
+        WHERE adminname = $username";
+    $resultAdmin = mysqli_query($conn, $SQLAdmin);
+    $numRows = mysqli_num_rows($resultAdmin);
+    if ($numRows  == 1) {
+        $row = mysqli_fetch_assoc($resultAdmin);
+        if (password_verify($password, $row['adminPassword'])) {
+            if (isset($Remember_me) && $_POST['Remember_me'] == "yes") {
+                $_SESSION['user_id'] = $row['id'];
+                $_SESSION['adminName'] = $row['adminname'];
+                $_SESSION['adminMail'] = $row['adminEmail'];
+                header('location:dashboard.php');
+            } else {
+                header('location:dashboard.php');
+            }
+        } else {
+            $UserNameNotok = true;
+            $errorMsg =  "Wrong Email Or Password";
+        }
+    } else {
+        $UserNotFound = true;
+        $errorMsg =  "No User Found";
+    }

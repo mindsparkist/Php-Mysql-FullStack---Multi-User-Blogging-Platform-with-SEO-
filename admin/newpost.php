@@ -18,7 +18,7 @@ $description = '';
 
 if (isset($_POST['submitpost'])) {
     date_default_timezone_set("Asia/Kolkata");
-    $datetime = date('d/m/Y h:i:s a', time());
+    $datetime = date('d/m/Y h:i:s', time());
     $title = htmlspecialchars(stripslashes(trim($_POST['title'])));
     $category = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING);
     $author = filter_input(INPUT_POST, 'author', FILTER_SANITIZE_STRING);

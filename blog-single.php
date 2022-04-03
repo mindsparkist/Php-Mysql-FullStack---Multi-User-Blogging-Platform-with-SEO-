@@ -1,5 +1,62 @@
 <?php
 require_once './partials/_db.php';
+function slug($text)
+{
+
+  // replace non letter or digits by -
+    $text = preg_replace('~[^\\pL\d]+~u', '-', $text);
+
+    // trim
+    $text = trim($text, '-');
+
+    // transliterate
+    $text = iconv('utf-8', 'us-ascii//TRANSLIT', $text);
+
+    // lowercase
+    $text = strtolower($text);
+
+    // remove unwanted characters
+    $text = preg_replace('~[^-\w]+~', '', $text);
+
+    if (empty($text)) {
+        return 'n-a';
+    }
+
+    return $text;
+}
+
+function time_elapsed_string($datetime, $full = false)
+{
+    $now = new DateTime;
+    $ago = new DateTime($datetime);
+    $diff = $now->diff($ago);
+
+    $diff->w = floor($diff->d / 7);
+    $diff->d -= $diff->w * 7;
+
+    $string = array(
+        'y' => 'year',
+        'm' => 'month',
+        'w' => 'week',
+        'd' => 'day',
+        'h' => 'hour',
+        'i' => 'minute',
+        's' => 'second',
+    );
+    foreach ($string as $k => &$v) {
+        if ($diff->$k) {
+            $v = $diff->$k . ' ' . $v . ($diff->$k > 1 ? 's' : '');
+        } else {
+            unset($string[$k]);
+        }
+    }
+
+    if (!$full) {
+        $string = array_slice($string, 0, 1);
+    }
+    return $string ? implode(', ', $string) . ' ago' : 'just now';
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +66,10 @@ require_once './partials/_db.php';
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta property="og:title" content="social media sharing buttons " />
+    <meta property="og:image" content="" />
+    <meta property="og:url" content="http://localhost/blog/" />
+    <meta property="og:description" content="social media sharing buttons php onlinecode.org" />
     <!-- =========== Title ============= -->
     <title>
         The Php Times Default Title
@@ -128,14 +189,11 @@ require_once './partials/_db.php';
                         </div>
                     </div>
                 </div>
-                <div class="mb-5">
-                    <div class="m-auto">
-                        <div class="gap-example">
-                            <?php   $player="<audio controls='controls' autoplay><source src='data:audio/mpeg;base64,".base64_encode($audio)."'></audio>";
+                <div class="mb-5" style="margin-left: 32%;">
+                    <div class="gap-example">
+                        <?php   $player="<audio hidden controls='controls' autoplay><source src='data:audio/mpeg;base64,".base64_encode($audio)."'></audio>";
                         echo $player ?>
-                        </div>
                     </div>
-
                 </div>
                 <div class="post-content m-auto">
                     <!--  -->
@@ -146,10 +204,14 @@ require_once './partials/_db.php';
                 <div class="share-wrap clearfix text-center">
                     <div class="share-text h4">Share this article on:</div>
                     <ul class="share-links">
+                        <?php
+                        $baseUrl="http://localhost/blog/";
+                        $slug= slug(htmlspecialchars_decode($title)); ?>
+
                         <!-- facebook -->
                         <li>
                             <a class="facebook"
-                                href="https://www.facebook.com/sharer/sharer.php?u=https://excellentdynamics.biz/demos/html/second-time-around/"
+                                href="https://www.facebook.com/sharer/sharer.php?u=<?= $baseUrl.$slug; ?>"
                                 onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                     <path
@@ -160,7 +222,7 @@ require_once './partials/_db.php';
                         <!-- twitter -->
                         <li>
                             <a class="twitter"
-                                href="https://twitter.com/share?text=5+things+to+do+in+Meghalaya+%26%238211%3B+the+abode+of+clouds&amp;url=https://excellentdynamics.biz/demos/html/second-time-around/"
+                                href="https://twitter.com/share?text=Visit the link &url=<?=$baseUrl.$slug; ?>&hashtags=blog,phpTimes,mindsparkist,codes,examples,language,development"
                                 onclick="window.open(this.href, 'twitter-share', 'width=580,height=296');return false;"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                     <path
@@ -171,7 +233,7 @@ require_once './partials/_db.php';
                         <!-- linkedin -->
                         <li>
                             <a class="linkedin"
-                                href="http://www.linkedin.com/shareArticle?mini=true&amp;url=https://excellentdynamics.biz/demos/html/second-time-around/&amp;title=5+things+to+do+in+Meghalaya+%26%238211%3B+the+abode+of+clouds"
+                                href="http://www.linkedin.com/shareArticle?mini=true&url=<?=$baseUrl.$slug; ?>"
                                 onclick="window.open(this.href, 'linkedin-share', 'width=580,height=296');return false;"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                     <path
@@ -182,7 +244,7 @@ require_once './partials/_db.php';
                         <!-- pinterest -->
                         <li>
                             <a class="pinterest"
-                                href="http://pinterest.com/pin/create/button/?url=https://excellentdynamics.biz/demos/html/second-time-around/&amp;description=5+things+to+do+in+Meghalaya+%26%238211%3B+the+abode+of+clouds"
+                                href="http://pinterest.com/pin/create/button/?url=<?=$baseUrl.$slug; ?>"
                                 onclick="window.open(this.href, 'linkedin-share', 'width=580,height=296');return false;"><svg
                                     xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                                     <path

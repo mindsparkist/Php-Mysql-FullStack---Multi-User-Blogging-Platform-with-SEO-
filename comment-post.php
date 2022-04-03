@@ -7,7 +7,7 @@ if (isset($_POST['submitcomment'])) {
     $pageid = $_GET['id'];
     $pageid = str_replace("'", '', $pageid);
     date_default_timezone_set("Asia/Kolkata");
-    $datetime = date('d/m/Y h:i:s a', time());
+    $datetime = date('d/m/Y h:i:s', time());
     $comment=htmlspecialchars(stripslashes(trim($_POST['comment'])));
     $commentAuthor=htmlspecialchars(stripslashes(trim($_POST['cauthor'])));
     $commentEmail=htmlspecialchars(stripslashes(trim($_POST['cemail'])));
