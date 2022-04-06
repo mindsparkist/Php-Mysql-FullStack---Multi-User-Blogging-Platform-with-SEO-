@@ -1,7 +1,11 @@
 <?php
 $show_rechapta = true;
+require_once './vendor/autoload.php';
 require_once './partials/_header.php';
 require_once './partials/_db.php';
+
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__);
+$dotenv->safeLoad();
 
 $missing = false;
 $sql_success = false;
@@ -9,7 +13,7 @@ $sql_unsuccess = false;
 
 
 if (isset($_POST['submit']) && $_POST['g-recaptcha-response'] != "") {
-    $secret = '6LfypSgfAAAAALtgb0eGBp5NjRnTiZA8Ex8eTOdU';
+    $secret = $_ENV['RECHAP_SECRET_KEY'];
     $verifyResponse = file_get_contents('https://www.google.com/recaptcha/api/siteverify?secret=' . $secret . '&response=' . $_POST['g-recaptcha-response']);
     $responseData = json_decode($verifyResponse);
     if ($responseData->success) {
@@ -91,7 +95,7 @@ if (isset($_POST['submit']) && $_POST['g-recaptcha-response'] != "") {
                                     aria-invalid="false" placeholder="Message">
                                 </textarea>
                             </span>
-                        <div class="g-recaptcha" data-sitekey="6LfypSgfAAAAAE-0EhzGe1h8i6oCZVeUNXnIRyyw"></div>
+                        <div class="g-recaptcha" data-sitekey="6Lfm4U4fAAAAACwNUnybVcyvkdEUu_OHAs0ZFdKq"></div>
                         <br>
                         <input type="submit" name="submit" value="submit" class="wpcf7-form-control wpcf7-submit">
                         </p>
