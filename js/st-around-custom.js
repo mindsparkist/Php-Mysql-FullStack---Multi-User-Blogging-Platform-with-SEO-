@@ -62,13 +62,14 @@
                 $('#search-results').empty();
             });
             $('#search-input').on("keyup", function () {
+                var value = $(this).val().toLowerCase();
                 $.ajax({
-                    url: ajax_url,
-                    type: 'post',
-                    data: { action: 'data_fetch', keyword: $('#search-input').val() },
+                    url: "getResult.php",
+                    type: 'POST',
+                    data: { search: value },
                     beforeSend: function () {
                         $('#loader').addClass('visible');
-                        // $('#search-results').css('opacity', 0);
+                        //$('#search-results').css('opacity', 0);
                     },
                     success: function (data) {
                         $('#search-results').html(data);

@@ -7,15 +7,7 @@
             <div class="row clearfix">
                 <div class="col-lg-6 large-post post-wrap">
                     <?php
-                    if (isset($_POST["searchbutton"])) {
-                        // search Query
-                        $showPostFrom = 0;
-                        $search = $_POST['search'];
-                        $sql = "SELECT * FROM new_post WHERE 
-                        datetime LIKE '%$search%' OR title LIKE '%$search%'
-                        OR category LIKE '%$search%' OR author LIKE '%$search%' OR
-                        post LIKE '%$search%'";
-                    } elseif (isset($_GET['page'])) {
+                    if (isset($_GET['page'])) {
                         $page = $_GET['page'];
                         if ($page <= 0) {
                             $showPostFrom = 0;

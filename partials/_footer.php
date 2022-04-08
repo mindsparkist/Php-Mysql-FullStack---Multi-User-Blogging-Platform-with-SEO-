@@ -140,13 +140,10 @@
         <div class="row">
             <div class="col-sm-12">
                 <!-- Search form -->
-                <form id="search-form" action="index.php" method="POST">
+                <form id="search-form" action="#" method="POST">
                     <div class="input-group mb-3">
                         <input type="text" class="form-control" placeholder="Type to search" id="search-input"
-                            aria-label="Search" name="search">
-                        <button type="submit" value="Submit" class="btn btn-primary" name="searchbutton">
-                            Search
-                        </button>
+                            aria-label="Search" name="search" autocomplete="off">
                     </div>
                 </form>
                 <div class="loader" id="loader"><span class="spinner"></span>Loading ...</div>
@@ -161,7 +158,6 @@
 <script type='text/javascript' src='libs/fitvids/fitvids.js'></script>
 <script type='text/javascript' src='libs/medium-zoom.min.js'></script>
 <script type='text/javascript' src='js/st-around-custom.js'></script>
-
 
 </body>
 
