@@ -112,5 +112,49 @@
     });
 }(jQuery));
 
-new GreenAudioPlayer('.gap-example');
+// darkmode
+const options = {
+    bottom: '500px', // default: '32px'
+    right: '100px', // default: '32px'
+    left: 'unset', // default: 'unset'
+    time: '0.3s', // default: '0.3s'
+    mixColor: '#fff', // default: '#fff'
+    backgroundColor: '#fff',  // default: '#fff'
+    buttonColorDark: '#100f2c',  // default: '#100f2c'
+    buttonColorLight: '#fff', // default: '#fff'
+    saveInCookies: true, // default: true,
+    label: '🌓', // default: ''
+    autoMatchOsTheme: true // default: true
+}
+const darkmode = new Darkmode(options);
+darkmode.showWidget();
 
+// cookie consent
+var cookieSettings = new BootstrapCookieConsentSettings({
+
+    // the language, in which the modal is shown
+    lang: navigator.language,
+
+    // supported languages (in ./content/)
+    languages: ["en", "de"],
+
+    // dialog content
+    contentURL: "./content/",
+
+    // cookie name stored as JSON
+    cookieName: "cookie-consent-settings",
+
+    // 365 days
+    cookieStorageDays: 365,
+
+    // callback function, called after the user has made his selection
+    postSelectionCallback: undefined
+
+});
+
+$(".accept").click(function(){
+        $(".cookie").hide();
+  //Enter your code hear...
+    });
+
+new GreenAudioPlayer('.gap-example');

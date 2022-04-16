@@ -56,49 +56,16 @@
             </head>
 
             <body>
-
-                <?php if (isset($_COOKIE["Remember_me"])): ?>
-                <header class="site-header">
-                    <div class="container-fluid">
-                        <!-- Navbar -->
-                        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                            <!-- Container wrapper -->
-                            <div class="container">
-                                <!-- Navbar brand -->
-                                <a class="navbar-brand me-2" href="#">
-                                    👋 Admin
-                                </a>
-
-                                <!-- Toggle button -->
-
-
-                                <!-- Collapsible wrapper -->
-                                <div class="collapse navbar-collapse" id="navbarButtonsExample">
-                                    <!-- Left links -->
-                                    <div class="d-flex align-items-center">
-                                        <a href="http://localhost/blog/admin/dashboard.php
-" type="button" target="_blank" class="btn btn-primary me-3">
-                                            Go To Admin Panel
-                                        </a>
-                                    </div>
-                                </div>
-                                <!-- Collapsible wrapper -->
-                            </div>
-                            <!-- Container wrapper -->
-                        </nav>
-                        <!-- Navbar -->
+                <!-- =========== Logo ============= -->
+                <div class="container">
+                    <div class="header-wrapper text-center">
+                        <a class="text-logo" href="index.php">The Php Times</a>
+                        <div class="site-description">The perfect theme for news and magazine</div>
                     </div>
-                    <?php  endif ?>
-                    <!-- =========== Logo ============= -->
-                    <div class="container">
-                        <div class="header-wrapper text-center">
-                            <a class="text-logo" href="index.php">The Php Times</a>
-                            <div class="site-description">The perfect theme for news and magazine</div>
-                        </div>
-                    </div>
-                    <?php require_once '_navbar.php'; ?>
-                </header>
-        </div>
-        <!-- =========== Logo ============= -->
-        <?php require_once '_navbar.php'; ?>
+                </div>
+                <?php require_once '_navbar.php'; ?>
+    </header>
+    </div>
+    <!-- =========== Logo ============= -->
+    <?php require_once '_navbar.php'; ?>
     </header>

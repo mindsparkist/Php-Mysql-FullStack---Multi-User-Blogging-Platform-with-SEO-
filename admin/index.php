@@ -1,14 +1,30 @@
 <?php
 require_once './partials/db.php';
-$UserNameNotok = false;
+$WrongUserName = false;
 $UserNotFound = false;
 session_start();
 if (isset($_POST['submit'])) {
     $username=htmlspecialchars(stripslashes(trim($_POST['username'])));
     $password=htmlspecialchars(stripslashes(trim($_POST['password'])));
     $Remember_me=htmlspecialchars(stripslashes(trim($_POST['Remember_me'])));
-    if ($username == "root" && $password == "root") {
-        header("refresh:2; url=dashboard.php");
+    $check_email = "SELECT * FROM admin_registration WHERE adminEmail = '$username'";
+    $res = mysqli_query($conn, $check_email);
+    if (mysqli_num_rows($res) > 0) {
+        $fetch = mysqli_fetch_assoc($res);
+        $fetch_pass = $fetch['adminPassword'];
+        if (password_verify($password, $fetch_pass) || $fetch_pass == $password) {
+            $_SESSION['email'] = $username;
+            $_SESSION['name'] = $fetch['adminname'];
+            header("Location: dashboard.php");
+        } else {
+            $WrongUserName = true;
+            echo "password Dont Match";
+            header("Location: index.php");
+        }
+    } else {
+        $UserNotFound = true;
+        echo "No User Exist";
+        header("Location: index.php");
     }
 }
 ?>
@@ -77,6 +93,11 @@ if (isset($_POST['submit'])) {
 <body class="bg-gradient-primary">
 
     <div class="container">
+        <?php if ($UserNotFound || $WrongUserName) : ?>
+        <div class="alert alert-warning" role="alert">
+            Some Error Occure
+        </div>
+        <?php endif ?>
 
         <!-- Outer Row -->
         <div class="row justify-content-center">
@@ -125,9 +146,9 @@ if (isset($_POST['submit'])) {
                                         </a> -->
                                     </form>
                                     <hr>
-                                    <div class="text-center">
+                                    <!-- <div class="text-center">
                                         <a class="small" href="forgot-password.php">Forgot Password?</a>
-                                    </div>
+                                    </div> -->
                                     <!-- <div class="text-center">
                                         <a class="small" href="register.html">Create an Account!</a>
                                     </div> -->

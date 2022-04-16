@@ -90,9 +90,9 @@
                     <form id="mc4wp-form-1" class="mc4wp-form mc4wp-form-114" method="post" data-id="114" data-name="">
                         <div class="mc4wp-form-fields">
                             <p>We Need Good People Loke You To Donate</p>
-                            <button type="submit" class="btn btn-warning hvr-push">
+                            <a href="http://localhost/blog/payment/" class="btn btn-warning hvr-push">
                                 Subscribe
-                            </button>
+                            </a>
                         </div>
                     </form>
                 </div>
@@ -157,6 +157,7 @@
 <script type='text/javascript' src='js/highlight.pack.js'></script>
 <script type='text/javascript' src='libs/fitvids/fitvids.js'></script>
 <script type='text/javascript' src='libs/medium-zoom.min.js'></script>
+<script type='text/javascript' src='js/darkmode-js.min.js'></script>
 <script type='text/javascript' src='js/st-around-custom.js'></script>
 
 </body>

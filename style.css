@@ -1623,6 +1623,40 @@ a img.aligncenter{
 .comment-form-cookies-consent{
     margin-top:1rem
 }
+/*cookie concent*/
+.cookie{
+    width: 420px;
+    height: 72px;
+    background-color: #fff;
+    position: fixed;
+    bottom: 88px;
+    border-radius: 10px;
+    left: 5%;
+    padding: 10px 20px;
+}
+
+.cookie .txtcookie{
+    float: left;
+    width: 65%;
+}
+.txtcookie p{
+    color:#1D2D35;
+}
+
+.cookie .accept {
+    background-color: #40CC79;
+    color: #fff !important;
+    border-radius: 32px;
+    padding: 3px 23px;
+    /* align-self: center; */
+    font-size: 19px;
+    margin-top: 2.5%;   
+    margin-left: 3%;
+
+}
+.cookie .accept:hover {
+    background-color: #30b867;
+}
 .site-footer{
     background-color:#161616;
     color:#aeaeae;

@@ -176,6 +176,18 @@
             </div>
         </div>
     </div>
+    <!-- cookie concent -->
+<section class="cookie">
+   <div class="txtcookie">
+      <p class="">
+         By using Your Website Name,<br>
+         you agree to our <a href="#" target="_blank">Cookie Policy.</a>
+      </p>
+   </div>
+   <div>
+      <a class="btn accept">Accept</a>
+   </div>
+</section>
 
 </div><!-- =========== End Main Container ============= -->
 <?php require_once './partials/_footer.php';

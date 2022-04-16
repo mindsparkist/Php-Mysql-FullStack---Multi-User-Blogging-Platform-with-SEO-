@@ -39,7 +39,8 @@
 
                  while ($row=mysqli_fetch_assoc($res)) { ?>
                      <li class="menu-item">
-                         <a href="category-business.php">
+                         <a
+                             href="categories-page.php?cat=<?= $row['categoryname'] ?>">
                              <?= $row['categoryname']?>
                          </a>
                      </li>
@@ -77,7 +78,8 @@
 
                  while ($row=mysqli_fetch_assoc($res)) { ?>
                      <li class="menu-item">
-                         <a href="category-business.php">
+                         <a
+                             href="categories-page.php?cat=<?= $row['categoryname'] ?>">
                              <?= $row['categoryname']?>
                          </a>
                      </li>
