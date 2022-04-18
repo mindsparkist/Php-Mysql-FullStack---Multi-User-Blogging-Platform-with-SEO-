@@ -22,8 +22,7 @@
 
 
 <!-- Page level plugins -->
-<script src="vendor/datatables/jquery.dataTables.min.js"></script>
-<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+<script type="text/javascript" src="../vendor/datatables/dtv1/datatables.min.js"></script>
 <!-- Footer -->
 <footer class="sticky-footer bg-white">
     <div class="container my-auto">

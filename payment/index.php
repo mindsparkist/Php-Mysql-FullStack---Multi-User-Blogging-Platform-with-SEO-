@@ -31,22 +31,22 @@ $dotenv->safeLoad();
             <legend><span class="number">1</span> Your basic info</legend>
 
             <label for="name">Name:</label>
-            <input type="text" id="name" name="user_name" required />
+            <input type="text" id="name" name="user_name" autocomplete="off" required />
 
             <label for="mail">Email:</label>
-            <input type="email" id="mail" name="user_email" required />
+            <input type="email" id="mail" name="user_email" autocomplete="off" required />
 
             <label for="Mobile">Mobile:</label>
-            <input type="number" id="Mobile" name="user_Mobile" required />
+            <input type="number" id="Mobile" name="user_Mobile" autocomplete="off" required />
 
             <label for="Address">Address:</label>
-            <input type="text" id="Address" name="user_Address" required />
+            <input type="text" id="Address" name="user_Address" autocomplete="off" required />
 
             <label for="Company">Company:</label>
-            <input type="text" id="Company" name="user_Company" required />
+            <input type="text" id="Company" name="user_Company" autocomplete="off" required />
 
             <label for="Ammount">Ammount:</label>
-            <input type="number" id="Ammount" name="user_Ammount" required />
+            <input type="number" id="Ammount" name="user_Ammount" autocomplete="off" required />
 
             <label>Monthly Payment:</label>
             <input type="checkbox" id="Monthly" value="interest_Monthly" name="user_Monthly" />
@@ -59,6 +59,7 @@ $dotenv->safeLoad();
     </form>
     <script>
         function pay_now() {
+            console.log("pay_now");
             let monthly = false;
             let Company = jQuery('#Company').val();
             let name = jQuery('#name').val();
@@ -66,12 +67,69 @@ $dotenv->safeLoad();
             let Mobile = jQuery('#Mobile').val();
             let Address = jQuery('#Address').val();
             let Ammount = jQuery('#Ammount').val();
+
+            // Initializing Variables With Regular Expressions
+            var txt_regex = /^[a-z ,.'-]+$/i;
+            var mail_regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            var add_regex = /^[a-zA-Z0-9\s,.'-]+$/;
+            var number_regex = /^[0-9]+$/;
+
+            // Validating Name Field
+            if (name.length == 0) {
+                alert("Name Field is Empty");
+                return false;
+            } else if (!txt_regex.test(name)) {
+                alert("Please Enter Valid Name");
+                return false;
+            }
+            // Validating Email Field
+            if (mail.length == 0) {
+                alert("Email Field is Empty");
+                return false;
+            } else if (!mail_regex.test(mail)) {
+                alert("Please Enter Valid Email");
+                return false;
+            }
+            // Validating Mobile Field
+            if (Mobile.length == 0) {
+                alert("Mobile Field is Empty");
+                return false;
+            } else if (!number_regex.test(Mobile)) {
+                alert("Please Enter Valid Mobile Number");
+                return false;
+            } else if (Mobile.length < 10 || Mobile.length > 10) {
+                alert("Mobile Number must be 10 Digits");
+                return false;
+            }
+            // Validating Address Field
+            if (Address.length == 0) {
+                alert("Address Field is Empty");
+                return false;
+            } else if (!add_regex.test(Address)) {
+                alert("Please Enter Valid Address");
+                return false;
+            }
+            // Validating Company Field
+            if (Company.length == 0) {
+                alert("Company Field is Empty");
+                return false;
+            } else if (!txt_regex.test(Company)) {
+                alert("Please Enter Valid Company Name");
+                return false;
+            }
+            // Validating Ammount Field
+            if (Ammount.length == 0) {
+                alert("Ammount Field is Empty");
+                return false;
+            } else if (!number_regex.test(Ammount)) {
+                alert("Please Enter Valid Ammount");
+                return false;
+            }
+            // Validating Monthly Field
             if ($('#Monthly').is(":checked")) {
                 monthly = true;
             }
-
-
-
+            // AJAX Request
             jQuery.ajax({
                 type: 'post',
                 url: 'payment_process.php',
@@ -84,7 +142,7 @@ $dotenv->safeLoad();
                         "currency": "INR",
                         "name": "PHP TIMES INC",
                         "description": "Make A Donation",
-                        "image": "https://image.freepik.com/free-vector/logo-sample-text_355-558.jpg",
+                        "image": "https://i.ibb.co/2yph1k3/img-php-min.jpg",
                         "handler": function(response) {
                             jQuery.ajax({
                                 type: 'post',

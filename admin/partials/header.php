@@ -24,6 +24,6 @@
     <script src="vendor/jquery/jquery.min.js"></script>
 
     <!-- custom style for this page -->
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.11.5/datatables.min.css" />
 
 </head>
