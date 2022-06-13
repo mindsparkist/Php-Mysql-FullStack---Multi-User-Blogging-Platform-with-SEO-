@@ -38,7 +38,7 @@
       public function read_single()
       {
           // Create query
-          $query = 'SELECT `id`, `datetime`, `title`, `category`, `author`, `post` FROM `new_post` WHERE `id` = ? LIMIT 0,1';
+          $query = "SELECT id, datetime, title, category, author, post FROM new_post WHERE id = ? LIMIT 0,1";
 
           // Prepare statement
           $stmt = $this->conn->prepare($query);

@@ -165,8 +165,9 @@
                                 <?= $title ?>
                             </a>
                         </h2>
-                        <time class="date" datetime="htmlentities($datetime);">
-                            htmlentities($datetime);
+                        <time class="date"
+                            datetime="<?= htmlentities($datetime) ?>">
+                            <?= htmlentities($datetime)?>
                         </time>
                     </div>
                 </div>
@@ -179,7 +180,7 @@
     <!-- cookie concent -->
     <section class="cookie">
         <div class="txtcookie">
-            <p class="">
+            <p>
                 By using Your Website Name,<br>
                 you agree to our <a href="./privacy.php" target="_blank">Cookie Policy.</a>
             </p>

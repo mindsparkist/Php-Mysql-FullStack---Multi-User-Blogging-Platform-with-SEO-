@@ -72,7 +72,7 @@ function time_elapsed_string($datetime, $full = false)
     <meta property="og:description" content="social media sharing buttons php onlinecode.org" />
     <!-- =========== Title ============= -->
     <title>
-        The Php Times Default Title
+        Newspaper Blog Default Title
     </title>
     <!-- ======== Load Google Fonts ============= -->
     <!-- <link media="print" onload="this.onload=null;this.removeAttribute('media');"
@@ -127,7 +127,7 @@ function time_elapsed_string($datetime, $full = false)
                 <!-- =========== Logo ============= -->
                 <div class="container">
                     <div class="header-wrapper text-center">
-                        <a class="text-logo" href="index.php">The Php Times</a>
+                        <a class="text-logo" href="index.php">Newspaper Blog</a>
                         <div class="site-description">The perfect theme for news and magazine</div>
                     </div>
                 </div>

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- =========== Title ============= -->
-    <title>The PHP Times The Php Custom Theme for news and magazine</title>
+    <title>The Newspaper Blog The Php Custom Theme for news and magazine</title>
     <!-- ======== Load Google Fonts ============= -->
     <!-- <link media="print" onload="this.onload=null;this.removeAttribute('media');"
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,700%7COswald:400,700&amp;display=swap"
@@ -59,7 +59,7 @@
                 <!-- =========== Logo ============= -->
                 <div class="container">
                     <div class="header-wrapper text-center">
-                        <a class="text-logo" href="index.php">The Php Times</a>
+                        <a class="text-logo" href="index.php">Newspaper Blog</a>
                         <div class="site-description">The perfect theme for news and magazine</div>
                     </div>
                 </div>

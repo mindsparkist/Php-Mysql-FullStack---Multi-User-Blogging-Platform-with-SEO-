@@ -1727,7 +1727,7 @@ a img.aligncenter {
 .cookie {
   width: 420px;
   height: 72px;
-  background-color: rgb(164, 155, 155);
+  background-color: #161616;
   position: fixed;
   bottom: 88px;
   border-radius: 10px;
@@ -1740,7 +1740,7 @@ a img.aligncenter {
   width: 65%;
 }
 .txtcookie p {
-  color: #1d2d35;
+  color: #b8c4cb;
 }
 
 .cookie .accept {
