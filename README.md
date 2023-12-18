@@ -1,7 +1,5 @@
 # Building a Multi-User Blogging Platform with SEO: A Solo Project in PHP and MySQL
 
-# PHP-MySQL Full Stack Multi-User Blogging Platform with SEO
-
 ## Overview
 
 This project represents a significant milestone in web development—a sophisticated, feature-rich blogging platform designed and implemented using the PHP and MySQL full stack. Crafted as a major solo project, this innovative system not only empowers users to share their thoughts but also focuses on Search Engine Optimization (SEO) to enhance content visibility.
