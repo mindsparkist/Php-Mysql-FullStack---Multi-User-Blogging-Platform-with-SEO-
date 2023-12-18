@@ -39,8 +39,6 @@ For a more detailed description, you can access the project document here: https
 
 Link :- https://www.slideshare.net/ShhuvradipChakrabort/bcamajorprojectvdfdfdfdfdfddfdfdfdfdfdfdfdfdfdf
 
-<iframe src="https://www.slideshare.net/slideshow/embed_code/key/4oZfVRn5z6YqwB?hostedIn=slideshare&page=upload" width="476" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
-
 ## Future Development
 
 This project is just the beginning. Future plans include continuous refinement, feature enhancements, and potential integration with emerging technologies to keep the platform at the forefront of the dynamic web development landscape.
