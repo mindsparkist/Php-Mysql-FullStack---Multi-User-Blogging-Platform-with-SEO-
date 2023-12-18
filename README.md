@@ -45,4 +45,7 @@ Link :- https://www.slideshare.net/ShhuvradipChakrabort/bcamajorprojectvdfdfdfdf
 
 This project is just the beginning. Future plans include continuous refinement, feature enhancements, and potential integration with emerging technologies to keep the platform at the forefront of the dynamic web development landscape.
 
+## Highlighting a specific feature: 
+
+Curious about building a robust commenting system for your blog? Check out my technical journey behind it on [Your blog URL]
 Feel free to explore this powerful PHP-MySQL Full Stack Multi-User Blogging Platform with SEO and witness the next generation of online content creation and sharing!
