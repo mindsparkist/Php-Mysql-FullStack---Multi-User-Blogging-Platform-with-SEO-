@@ -31,6 +31,18 @@ This project represents a significant milestone in web development—a sophistic
 - **Database:** MySQL
 - **Full Stack Development:** Leveraging the power of PHP and MySQL to create a seamless end-to-end web application.
 
+## Direct Link:
+
+For a more detailed description, you can access the project document here: https://www.dropbox.com/scl/fi/5yra3kygw036i43gnjnz0/Major-Project.docx?rlkey=e8llpxwcbew2vf1cpt4p1vk7w&dl=0
+
+![image](https://github.com/mindsparkist/Php-Mysql-FullStack---Multi-User-Blogging-Platform-with-SEO-/assets/51022430/d481bb86-6fbf-4405-83dc-81c6ed96d18d)
+
+## Link to a presentation online:
+
+Link :- https://www.slideshare.net/ShhuvradipChakrabort/bcamajorprojectvdfdfdfdfdfddfdfdfdfdfdfdfdfdfdf
+
+<iframe src="https://www.slideshare.net/slideshow/embed_code/key/4oZfVRn5z6YqwB?hostedIn=slideshare&page=upload" width="476" height="400" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"></iframe>
+
 ## Future Development
 
 This project is just the beginning. Future plans include continuous refinement, feature enhancements, and potential integration with emerging technologies to keep the platform at the forefront of the dynamic web development landscape.
