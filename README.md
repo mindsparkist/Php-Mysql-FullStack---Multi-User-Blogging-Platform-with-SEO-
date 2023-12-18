@@ -45,5 +45,6 @@ This project is just the beginning. Future plans include continuous refinement, 
 
 ## Highlighting a specific feature: 
 
-Curious about building a robust commenting system for your blog? Check out my technical journey behind it on [Your blog URL]
+Curious about building a robust commenting system for your blog? Check out my technical journey behind it on 
+https://shuvradipchakrabortyportfolio.blogspot.com/2023/12/building-powerful-multi-user-blogging.html
 Feel free to explore this powerful PHP-MySQL Full Stack Multi-User Blogging Platform with SEO and witness the next generation of online content creation and sharing!
